@@ -8,7 +8,7 @@
     
 -   Set all margins to 0.5 inches (top, bottom, left, and right).
     
--   Use Arial font, size 10 for all text.
+-   Use Arial font, size 11 for all text.
     
 -   Answers should be typed and printed. Handwritten submissions will not be accepted.
     
