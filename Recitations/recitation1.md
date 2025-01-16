@@ -27,7 +27,7 @@ We'll calculate allele frequencies, expected genotype frequencies under HWE, and
 # Genotype counts
 AA <- 50
 Aa <- 30
-aa <- <<QUESTION 1: what should this number be?>>
+aa <- ? ##<<QUESTION 1: what should this number be?>>
 
 # Total population size
 N <- AA + Aa + aa
@@ -40,7 +40,7 @@ N
 
 p <- (2 * AA + Aa) / (2 * N) # Frequency of A
 
-q <- <<QUESTION 2: what should this formula be?>> # Frequency of a
+q <- ? ##<<QUESTION 2: what should this formula be?>> # Frequency of a
 ```
   
 
@@ -62,5 +62,37 @@ exp_aa <- q^2
 
 exp_counts <- c(AA = exp_AA * N, Aa = exp_Aa * N, aa = exp_aa * N)
 
+##QUESTION 3: explain in words what is occurring on this line of code?
+```
+
 QUESTION 3: explain in words what is occurring on this line of code?
+
+##### Step 5: Perform Chi-Square Test for HWE. In order to assess whether our population is statistically under Hardy-Weinberg Equilibrium, we will perform a statistical test called the “chi-squared.” This test compares expected and observed values and determines whether the values “fit together” (more explicitly whether they are drawn from the same or different probability distribution). A non-significant P-value indicates equilibrium, a significant one indicates a deviation from equilibrium.
+
+  
+
+# Chi-square test
+```r
+obs_counts <- c(AA = AA, Aa = Aa, aa = aa)
+
+chisq_test <- chisq.test(x = obs_counts, p = c(exp_AA, exp_Aa, exp_aa))
+
+chisq_test
+
+##QUESTION 4: Report and interpret the result of this analysis
+```
+##### Step 6: Visualize Observed vs. Expected Genotypes
+
+  
+```r
+# Bar plot 
+##QUESTION 5: put this graph in your report. Describe how the graph contextualizes the results of the test
+
+barplot(rbind(obs_counts, exp_counts),
+
+beside = TRUE, col = c("skyblue", "orange"),
+
+names.arg = c("AA", "Aa", "aa"),
+
+main = "Observed (blue) vs. Expected (orange)\nGenotype Counts",ylab = "Counts")
 ```
