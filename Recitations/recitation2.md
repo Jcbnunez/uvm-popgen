@@ -5,15 +5,15 @@ Learn to use R to model natural selection in a population, calculate allele freq
 
 Natural selection changes allele frequencies in a population based on the fitness of different genotypes. For a single locus with two alleles:
 
-$p = f(i)$ 
-$q = f(j)$
-$p+q=1$
+* $p = f(i)$ 
+* $q = f(j)$
+* $p+q=1$
 
 Fitness values (w) for genotypes:
 
-$wii = 1$
-$wij = 1$  (assumes full  dominance of i over j)
-$wjj = 1-s$
+* $wii = 1$
+* $wij = 1$  (assumes full  dominance of i over j)
+* $wjj = 1-s$
 
 We'll simulate the evolution of allele i over generations under different selection scenarios.
 
