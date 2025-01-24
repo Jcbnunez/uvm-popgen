@@ -11,9 +11,9 @@ Natural selection changes allele frequencies in a population based on the fitnes
 
 Fitness values (w) for genotypes:
 
-* $wii = 1$
-* $wij = 1$  (assumes full  dominance of i over j)
-* $wjj = 1-s$
+* $w_{ii} = 1$
+* $w_{ij} = 1$  (assumes full  dominance of i over j)
+* $w_{jj} = 1-s_{jj}$
 
 We'll simulate the evolution of allele i over generations under different selection scenarios.
 
