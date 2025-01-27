@@ -21,7 +21,7 @@ Imagine a population where the genotype counts are:
     
 We'll calculate allele frequencies, expected genotype frequencies under HWE, and test for equilibrium using R.
 
-```r
+```{r}
 ##### Step 1: Input Data
 
 # Genotype counts
@@ -35,7 +35,7 @@ N
 ```
 
 ##### Step 2: Calculate Observed Allele Frequencies
-```r
+```{r}
 # Observed allele frequencies
 
 p <- (2 * AA + Aa) / (2 * N) # Frequency of A
@@ -45,7 +45,7 @@ q <- ? ##<<QUESTION 2: what should this formula be?>> # Frequency of a
   
 
 ##### Step 3: Expected Genotype Frequencies Under HWE
-```r
+```{r}
 # Expected genotype frequencies
 
 exp_AA <- p^2
@@ -57,7 +57,7 @@ exp_aa <- q^2
   
 
 ##### Step 4: Expected Genotype Counts
-```r
+```{r}
 # Convert frequencies to counts
 
 exp_counts <- c(AA = exp_AA * N, Aa = exp_Aa * N, aa = exp_aa * N)
@@ -72,7 +72,7 @@ QUESTION 3: explain in words what is occurring on this line of code?
   
 
 # Chi-square test
-```r
+```{r}
 obs_counts <- c(AA = AA, Aa = Aa, aa = aa)
 
 chisq_test <- chisq.test(x = obs_counts, p = c(exp_AA, exp_Aa, exp_aa))
@@ -84,7 +84,7 @@ chisq_test
 ##### Step 6: Visualize Observed vs. Expected Genotypes
 
   
-```r
+```{r}
 # Bar plot 
 ##QUESTION 5: put this graph in your report. Describe how the graph contextualizes the results of the test
 
