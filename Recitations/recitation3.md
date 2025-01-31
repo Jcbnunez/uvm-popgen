@@ -1,4 +1,4 @@
-# Recitation 4: Temporal fluctuating selection
+# Recitation 3: Temporal fluctuating selection
 
 
 Temporally fluctuating selection is a form of balancing selection in which the selective pressures acting on a population vary over time. This temporal fluctuation leads to shifts in the traits or alleles that are favored within an environment, depending on changing ecological conditions. Unlike overdominance, where heterozygotes (e.g., xij) consistently exhibit the highest fitness, temporally fluctuating selection operates differently: each homozygote (xii or xjj) is favored at different times. For instance, xii​ may have the highest fitness during the summer, whereas xjj is favored during the winter. This dynamic promotes the persistence of genetic diversity within the population by periodically shifting which genotype is advantageous.
