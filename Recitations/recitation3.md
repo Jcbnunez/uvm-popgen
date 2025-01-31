@@ -7,7 +7,7 @@ These dynamics create a unique scenario in which temporally fluctuating selectio
 
 ###  Step 1: Recall our old and trusty function for generalized selection 😀
 
-```r
+```{r}
 general_selection = function( p, sii, sij, sjj ){
 
 q=1-p
@@ -42,7 +42,7 @@ Furthermore, we will assume that the organism that we want to simulate is “mul
 
 In our model, we will assume that summer and winter occur every 5 generations. How can we incorporate this in our simulation? One way is to introduce a “switch” in our code such that for all generations ending in 0-4 (e.g., 10,11,12,13,14…40,41,42…etc) the program will evaluate summer conditions. On the other hand, all generations ending in 5-9 will be evaluated as if they were winters.
 
-```r
+```{r}
 #We can accomplish this using the “grepl” function
 
 x <- 1:10
@@ -76,7 +76,7 @@ print("winter")
 Now we will set up the simulation, and we will condition the generation counter to vary its behaviour for summers and winters
 
 ### Question 2 is embedded in the code... 
-```r
+```{r}
 #define an initial allele frequency, and the empty variable for "recursive" use
 
 p=0.5
@@ -126,7 +126,7 @@ seasonal_selection = data.frame(g=1:100, p_recur)
 ```
 
 ### Step 5: Plot the simulations
-```r
+```{r}
 plot(seasonal_selection$g, seasonal_selection$p_recur, type ='l',ylim=c(0,1), ylab="Allele Freq", xlab="Generation")
 ```
 ### <<QUESTION 3: Print this graph in your report and describe what is happening. How does the behaviour of this formulation differ from other types of directional selection? Do you think this behavior is “stable”?>>
