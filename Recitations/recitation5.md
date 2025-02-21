@@ -83,7 +83,7 @@ for(i in 1:length(c_bins)){
 }
 ```
   
-### <<QUESTION 4: Print this graph in your report and describe what is happening>>
+### <<QUESTION 3: Print this graph in your report and describe what is happening>>
 
 ## Step 4: Add gene flow to the mix! … first lets create a migration function
 
