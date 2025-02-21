@@ -83,25 +83,25 @@ for(i in 1:length(c_bins)){
 }
 ```
   
-### <<QUESTION 3: Print this graph in your report and describe what is happening>>
+### <<QUESTION 4: Print this graph in your report and describe what is happening>>
 
 ## Step 4: Add gene flow to the mix! … first lets create a migration function
 
-### <<QUESTION 3: Complete the following code >>
+### <<QUESTION 4: Complete the following code >>
 
 ```{r}
 migration_rate = function( m, p1, p2 ){
-	#Q3.1
+	#Q4.1
 	q=<<?>>
 	p_t1 = m*(p1-p2)
-	#Q3.2
+	#Q4.2
 	return(<<?>>)
 }
 ```
 
 ## Step 5: Now we will create a simulation that incorporates both selection and migration. Yet, we must incorporate an aspect of nuance here. For migration to work, must simulate both populations as “co-occurring” (i.e., not independent). This will require some coding tricks!
 
-### <<QUESTION 4: Fix the following code >>
+### <<QUESTION 5: Fix the following code >>
 
 ```{r}
 p=0.5
@@ -119,11 +119,11 @@ for(g in 1:100){
 
 	#We will first code the action of selection on each population
 	p1_component = general_selection(p1_recur[g-1], 
-	## Q4.1
+	## Q5.1
 	sii=<<?>>; sij=<<?>>; sjj=<<?>>
 	)
 	p2_component = general_selection(p2_recur[g-1], 
-	## Q4.2
+	## Q5.2
 	sii=<<?>>; sij=<<?>>; sjj=<<?>>
 	)
 
@@ -135,7 +135,7 @@ for(g in 1:100){
 	p2_mig_delta = migration_rate( m, p1_recur[g-1], p2_recur[g-1] )
 
 	p1_recur[g] = p1_recur[g-1] + p1_delta + p1_mig_delta
-	## Q4.3
+	## Q5.3
 	<<?>>[g] = p2_recur[g-1] + p2_delta + p2_mig_delta
 
 	} # close if-else
@@ -145,12 +145,12 @@ sel_mig = data.frame(g=1:100, p1_recur, p2_recur)
 
 plot(NULL, xlim=c(1,100), ylim=c(0,1), ylab="Allele Freq", xlab="Generation")
 cl <- rainbow(2)
-## Q4.4
+## Q5.4
 lines(<<?>>$g, <<?>>$p1_recur,col = cl[1],type = 'l' )
-## Q4.5
+## Q5.5
 lines(<<?>>$g, <<?>>$p2_recur,col = cl[2],type = 'l' )
 ```
 
-### <<QUESTION 5: Print this graph in your report and describe what is happening. What is the long term evolutionary fate of these alleles? >>
+### <<QUESTION 6: Print this graph in your report and describe what is happening. What is the long term evolutionary fate of these alleles? >>
 
-### <<QUESTION 6: In class we derived the fitness of a spatially balanced heterozygote using a niche specific model, as opposed to a migration-selection balance model. What are the differences between these two approaches? >>
+### <<QUESTION 7: In class we derived the fitness of a spatially balanced heterozygote using a niche specific model, as opposed to a migration-selection balance model. What are the differences between these two approaches? >>
