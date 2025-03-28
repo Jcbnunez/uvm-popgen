@@ -113,6 +113,16 @@ plot(integrated_selection$g, integrated_selection$p_recur, type ='l',ylim=c(0,1)
 
 ### Step 6: a small challenge
 
-<<QUESTION 4: Mutation rate doesn't seem to be impacting the simulation much… what magnitude of back mutation rates (v) would you need to have to notice a difference… A ballpark is fine, but try to “force” the simulation to a steady state of p = 0.9 … provide a plot to showcase your point (you may want to simulate 1000 generations…) >>
+Mutation rate doesn't seem to be impacting the simulation much… lets see what would happen if we were to introduce a rate of back-mutation into the system (v)... Modify your function for mutation rate to include back mutation:
+
+```{r}
+mutation = function( p, u, v ){
+q=1-p
+p_t1 = p*(1-u)+ (1-p)*v
+return(p_t1)
+}
+```
+
+<<QUESTION 4:  holding v constant (u=1e-8) what magnitude of mutation rates (u) would you need to have to notice a difference… A ballpark is fine, but try to “force” the simulation to a steady state of ~0.3 … provide a plot to showcase your point (you may want to simulate 1000 generations…) >>.
 
 
