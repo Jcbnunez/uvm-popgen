@@ -123,6 +123,6 @@ return(p_t1)
 }
 ```
 
-<<QUESTION 4:  holding v constant ($v=1x10^-8$) what magnitude of mutation rates ($\mu$) would you need to have to notice a difference… A ballpark is fine, but try to “force” the simulation to a steady state of **$p = 0.9$** … provide a plot to showcase your point (you may want to simulate 1000 generations…) >>.
+<<QUESTION 4:  holding v constant ($v=1x10^{-8}$) what magnitude of mutation rates ($\mu$) would you need to have to notice a difference… A ballpark is fine, but try to “force” the simulation to a steady state of **$p = 0.9$** … provide a plot to showcase your point (you may want to simulate 1000 generations…) >>.
 
 
