@@ -1,7 +1,7 @@
 
 # Recitation 8: Genetic drift and effective population size
 
-Genetic drift is the random change in allele frequencies in a population due to chance, especially in small populations, leading to reduced genetic variation over time. Effective population size ($N_{e}$​) measures the number of individuals contributing to the gene pool, often smaller than the actual population size ($N$) due to factors like unequal sex ratios or reproductive variation. Both these concepts are related to each other as smaller Ne intensifies genetic drift, increasing the loss of genetic variation and the risk of inbreeding.
+Genetic drift is the random change in allele frequencies in a population due to chance, especially in small populations, leading to reduced genetic variation over time. Effective population size ($N_{e}$​) measures the number of individuals contributing to the gene pool, often smaller than the actual population size ($N$) due to factors like unequal sex ratios or reproductive variation. Both these concepts are related to each other as smaller $N_{e}$ intensifies genetic drift, increasing the loss of genetic variation and the risk of inbreeding.
 
 In this recitation, we will explore the dynamics of drift (from lecture 20) and $N_{e}$ (from lecture 21), **while also expanding our previously worked example** of *seasonal evolution*.
 
