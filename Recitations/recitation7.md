@@ -108,7 +108,6 @@ selection_linked$pb_recur,col = "blue",type = 'l')
 
 <<QUESTION 5: As we mentioned in the lecture, a more common metric use to measure linkage is r2, defined as:
 
-<<QUESTION 6: As we mentioned in the lecture, a more common metric use to measure linkage is r2, defined as:
 
 $$r^2 = {{D^2}\over{p_{⍺}q_{⍺}p_{β}q_{β}}}$$
 
