@@ -29,7 +29,6 @@ Likewise, $\bar{H_{S}}=$ represents the mean heterozygosity  across all populati
 
 ```{r}
 fst_calc = function( p1, p2 ){
-
 q1=1-p1
 q2=1-p2
 
@@ -37,7 +36,7 @@ Het1=2*p1*q1
 Het2=2*p2*q2
 
 Ht = 2*mean(c(p1,p2))*mean(c(q1, q2))
-Hs = mean(Het1, Het2)
+Hs = mean(c(Het1, Het2))
 fst =abs(Ht - Hs)/Ht
 return(fst)
 }
