@@ -1,0 +1,149 @@
+# Quantifying Fitness via Life-History Traits
+
+At its core, fitness is a demographic concept. When we say that one genotype is more fit than another, what we really mean is that individuals carrying that genotype contribute more descendants to future generations. Over time, genotypes with higher fitness increase in frequency because they leave more surviving offspring, while genotypes with lower fitness decline. Thus, fitness can be viewed as the rate at which a genotype grows or shrinks through time.  
+
+The Euler-Lotka equation provides a formal framework for quantifying this process. Rather than treating fitness as a single abstract number, it decomposes fitness into the life-history traits that determine demographic success: survival and reproduction at different ages. By combining age-specific survivorship ($l_x$) and fecundity ($m_x$), the Euler-Lotka equation identifies the population growth rate, $r$, that is consistent with a particular life-history strategy. In this sense, the Euler-Lotka equation links individual life histories to the long-term demographic fate of genotypes, making it one of the foundational equations of evolutionary ecology and population genetics.
+
+## The "full" equation
+
+Individuals are born, survive, reproduce, and die at different moments, resulting in populations composed of many overlapping age classes. Because demographic events occur continuously rather than in synchronized generational pulses, population growth is most naturally described using a continuous-time framework. The Euler-Lotka equation provides a means of linking age-specific survival and reproduction to the intrinsic rate of population growth, $r$, thereby quantifying the demographic success of a life-history strategy. In continuous time, the Euler-Lotka equation is:
+
+$$1=\int_0^\infty e^{-rx}l(x)m(x)\,dx.$$  
+
+This expression states that the sum of all future reproductive contributions, discounted by population growth rate, must equal one replacement offspring per individual.  A useful intuition is to imagine trying different values of $r$.  A useful intuition is that, If  
+
+$$\int_0^\infty e^{-rx}l(x)m(x)\,dx > 1,$$  
+
+then the value of $r$ is too small. After accounting for survival, reproduction, and the timing of reproduction, individuals are contributing more than one replacement offspring on average. The population is therefore capable of growing faster than the rate currently assumed.  Conversely, if  
+
+$$\int_0^\infty e^{-rx}l(x)m(x)\,dx < 1,$$  
+
+then the value of $r$ is too large. Individuals are contributing fewer than one replacement offspring on average, meaning the assumed growth rate cannot be sustained.  
+
+When the equation equals 1, every newborn individual exactly replaces itself in the next generation after accounting for both survival and the timing of reproduction. Thus, the Euler-Lotka equation can be thought of as a balance equation: it identifies the population growth rate for which lifetime reproductive contributions are exactly sufficient for replacement.
+
+## The age at reproduction effect
+
+Intrinsically, the quantity  
+
+$$l(x)m(x)$$  
+
+measures the expected number of offspring produced at age $x$.  The equation equals 1 because we are solving for the growth rate $r$ at which an individual exactly replaces itself in the population. Multiplying by  
+
+$$e^{-rx}$$  
+
+converts those offspring into their contribution to the overall population growth rate.  At first glance $e^{-rx}$ looks purely mathematical, but it has a very important biological interpretation.  Recall that, in a growing population, individuals born earlier produce descendants that begin reproducing sooner, allowing their lineage to expand for a longer period of time. Consequently, offspring produced early contribute more to future population growth than offspring produced later.  And thus, $e^{-rx}$ accounts for this effect.  Specifically, it discounts reproductive output occurring at age $x$ according to the population growth rate $r$. As age increases, the value of  $e^{-rx}$ becomes smaller.  
+
+In other words, Euler-Lotka allows for reproduction later in life to receives less weight than reproduction earlier in life.  For example, suppose  
+
+$$r=0.1.$$  
+
+Then offspring produced at age 1 are weighted by  
+
+$$e^{-0.1(1)}=0.905,$$  
+
+whereas offspring produced at age 10 are weighted by  
+
+$$e^{-0.1(10)}=0.368.$$  
+
+Even if two individuals produce the same number of offspring, the individual reproducing earlier contributes more to long-term population growth.  
+
+## Continuous-time to discrete-time simplification
+Although the continuous-time Euler-Lotka equation provides the most general description of demographic change, demographic data are often collected in discrete age classes (e.g., days, years, life stages, or generations). Representing survival and reproduction in discrete intervals is therefore more convenient and often more biologically intuitive. The discrete-time formulation retains the same biological information as the continuous-time version while making calculations and life-table analyses considerably simpler.  Thus, we divide the life cycle into discrete age classes and replace the integral with a summation:  
+
+$$1=\sum_{x=0}^{\infty} e^{-rx}l_xm_x.$$  
+
+This discrete-time version is the form most commonly used in life-history theory, population ecology, and evolutionary biology.
+
+## The Net Reproductive Rate Approximation
+
+Recall that $e^{-rx}$ discounts reproduction according to *when* it occurs. Offspring produced early in life receive a higher weight than offspring produced later in life because they have more time to contribute descendants to future generations. Suppose, however, that our goal is not to estimate the intrinsic rate of population growth. Instead, we simply want a measure of the expected number of offspring produced by a genotype over its lifetime (A more "generalizable" approximation of fitness).  To accomplish this, we remove the effect of reproductive timing by setting  
+
+$$r=0.$$  
+
+Under this assumption,  
+
+$$e^{-rx}=e^0=1,$$  
+
+and the Euler-Lotka equation simplifies to  
+
+$$1=\sum_{x=0}^{\infty} l_xm_x.$$  
+
+The quantity  
+
+$$\sum_{x=0}^{\infty} l_xm_x$$  
+
+is known as the **net reproductive rate**,  
+
+$$R_0=\sum_{x=0}^{\infty} l_xm_x.$$  
+
+Biologically, $R_0$ is the expected lifetime number of offspring produced by an individual (or genotype).  
+
+Mathematically, by setting  $r=0,$ we intentionally eliminate information about *when* offspring are produced and retain only information about *how many* offspring are produced. In other words, an offspring produced at age 2 and an offspring produced at age 10 are treated as equally valuable.  
+
+This simplification sacrifices information about generation time and population growth rate, but it greatly simplifies the analysis of fitness. Rather than tracking age-specific reproductive schedules, we can focus directly on lifetime reproductive success. This approximation is often reasonable when competing genotypes have similar generation times and differ primarily in survival or fecundity.  
+
+ ## From $R_0$ to Fitness ($W$)  
+
+Net reproductive rate,  $R_0$, measures the expected lifetime number of offspring produced by an individual. While this is a useful demographic quantity, evolutionary biologists are usually interested in something slightly different: **how successful one genotype is relative to another**.  For example, suppose two genotypes have  
+
+$$R_{0,A}=4$$  
+
+and  
+
+$$R_{0,B}=2.$$  
+
+The important evolutionary conclusion is not that genotype A produces exactly four offspring. Rather, it is that genotype A produces twice as many offspring as genotype B and should therefore increase in frequency over time.  Consequently, evolutionary models often replace the demographic measure $R_0$ with a more general measure of fitness, denoted  $W.$
+
+In the simplest case,  
+
+$$W \propto R_0,$$  
+
+meaning that fitness is proportional to expected lifetime reproductive success.  
+
+## The Single Reproductive Episode Approximation  
+
+Many organisms can be approximated as reproducing during a single life stage. In this case, survival and reproduction can be separated into two components:  
+
+* Survival to reproduction, $l$  
+
+* Reproductive output, $m$ 
+
+The net reproductive rate then becomes  
+
+$$R_0=l\times m.$$  
+
+Because fitness is proportional to lifetime reproductive success under this approximation, we define  
+
+$$W=l\times m.$$  
+
+This expression provides a simple, intuitive, and mathematically convenient, fitness measure: fitness is the probability of surviving to reproduction multiplied by the number of offspring produced once reproduction occurs. 
+
+## Why Make This Simplification?  
+
+The transition from  
+
+$$R_0=\sum_{x=0}^{\infty} l_xm_x$$  
+
+to  
+
+$$W=l\times m$$  
+
+collapses an entire age-specific life history into two biologically meaningful components. Instead of tracking survival and reproduction across many age classes, we only need to know:  
+
+1. What fraction of individuals survive to reproduction?  
+2. How many offspring do survivors produce?  
+
+This simplification makes evolutionary models much easier to analyze while preserving the central idea that fitness reflects the expected contribution of a genotype to future generations.  Conceptually, the progression is  
+
+$$1=\sum_{x=0}^{\infty} e^{-rx}l_xm_x$$  
+
+$$ ↓ $$ 
+
+$$R_0=\sum_{x=0}^{\infty} l_xm_x$$  
+
+$$ ↓ $$  
+
+$$W=l\times m.$$  
+
+At each step, demographic complexity is reduced, yielding a fitness measure that is increasingly simple, yet, generally retaining biological intuitition.
