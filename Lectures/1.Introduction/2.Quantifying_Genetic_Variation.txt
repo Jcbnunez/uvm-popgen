@@ -1,0 +1,341 @@
+# Topic 1: Quantifying Genetic Variation
+
+## Preparation for Recitation
+
+- Go over the R materials in Brightspace.
+
+---
+
+# Statistics for Population Genetics
+
+Building a common toolbox.
+
+---
+
+# Important Formulas
+
+## From theory to expectation (prediction)
+
+Expected genotype frequencies under Hardy-Weinberg equilibrium:
+
+$$
+f(x_{ii}) = p \times p = p^2
+$$
+
+$$
+f(x_{ij}) = qp + pq = 2pq
+$$
+
+$$
+f(x_{jj}) = q \times q = q^2
+$$
+
+---
+
+## From observed samples to inferred frequencies
+
+Estimating allele frequencies from genotype frequencies:
+
+$$
+p = x_{ii} + \frac{1}{2}x_{ij}
+$$
+
+$$
+q = x_{jj} + \frac{1}{2}x_{ij}
+$$
+
+### Predicting future data
+
+Use expected genotype frequencies when predicting what future data may look like.
+
+### Working with past data
+
+Use inferred allele frequencies when analyzing observed data.
+
+---
+
+# Estimating Allele Frequencies
+
+## From frequencies
+
+$$
+f_i = f(x_{ii}) + \frac{1}{2}f(x_{ij})
+$$
+
+## From counts
+
+For a sample of size \(n\):
+
+$$
+f_i = \frac{2x_{ii} + x_{ij}}{2n}
+$$
+
+---
+
+# A Problem: Inferred Estimates Have Error
+
+Recall that bi-allelic loci can be modeled as a binomial process.
+
+The confidence interval for a binomial proportion is:
+
+$$
+CI = p \pm \gamma\sqrt{\frac{p(1-p)}{n}}
+$$
+
+where:
+
+- $p$ = allele frequency estimate
+- $n$ = sample size
+- $\gamma$ = critical value from the normal distribution
+- For a 95% confidence interval, ($\gamma$ = 1.96)
+
+### What is n?
+
+Depending on the analysis:
+
+- Number of individuals sampled
+
+- Number of chromosomes sampled $2N$
+
+Since diploid individuals contribute two chromosomes, population genetic analyses often use chromosome counts.
+
+---
+
+# Example: Monitoring a Pollution Marker
+
+Suppose we measure allele frequencies at a pollution marker gene ("pol") through time.
+
+Observed frequencies:
+
+- Year (t): $p_t = 0.10$
+
+- Year (t+1): $p_{t+1} = 0.21$
+
+Observed change:
+
+$$
+\Delta p = 0.11
+$$
+
+Question:
+
+Is this change statistically significant at the 95% confidence level?
+
+---
+
+# How Many Fish Do We Need?
+
+We want to know whether:
+
+$$
+p_t = 0.10
+$$
+
+and
+
+$$
+p_{t+1} = 0.21
+$$
+
+are statistically distinguishable.
+If the observed difference can be explained by sampling error, it is not biologically interesting.
+If the difference exceeds expected sampling error, we can investigate evolutionary explanations.
+
+---
+
+# Confidence Intervals and Statistical Power
+
+Binomial confidence interval:
+
+$$
+CI = p \pm 1.96\sqrt{\frac{p(1-p)}{n}}
+$$
+
+Upper limit:
+
+$$
+p + 1.96\sqrt{\frac{p(1-p)}{n}}
+$$
+
+Lower limit:
+
+$$
+p - 1.96\sqrt{\frac{p(1-p)}{n}}
+$$
+
+Interpretation:
+
+- If the estimate from year \(t+1\) falls within the confidence interval of year \(t\), the difference is not significant.
+- If it falls outside, the difference is significant.
+
+---
+
+# Solving for Sample Size
+
+We want a confidence interval width equal to the observed difference:
+
+$$
+0.11
+$$
+
+Start with:
+
+$$
+(p + 1.96\sqrt{\frac{p(1-p)}{n}})
+(p - 1.96\sqrt{\frac{p(1-p)}{n}})=0.11
+$$
+
+Simplify:
+
+$$
+1.96\sqrt{\frac{p(1-p)}{n}}+1.96\sqrt{\frac{p(1-p)}{n}}=0.11
+$$
+
+$$
+3.92\sqrt{\frac{p(1-p)}{n}}=0.11
+$$
+
+$$
+\sqrt{\frac{p(1-p)}{n}}=0.02806
+$$
+
+Square both sides:
+$$
+\frac{p(1-p)}{n}=0.000787
+$$
+
+Expand:
+$$
+\frac{p-p^2}{n}=0.000787
+$$
+
+Solve for \(n\):
+
+$$
+n=\frac{p-p^2}{0.000787}
+$$
+
+---
+
+# Example Calculation
+
+Using the original allele frequency:
+
+$$
+p = 0.10
+$$
+
+Substitute:
+
+$$
+n =
+\frac{0.10-(0.10)^2}{0.000787}
+$$
+
+$$
+n =
+\frac{0.10-0.01}{0.000787}
+$$
+
+$$
+n =\frac{0.09}{0.000787}
+$$
+
+$$
+n = 114
+$$
+
+Result:
+
+$$
+n = 114
+$$
+
+Therefore, we require:
+- 114 individuals
+- 228 chromosomes
+
+to detect a change from:
+
+$$
+p = 0.10
+$$
+
+to
+
+$$
+p = 0.21
+$$
+
+at the 95% confidence level.
+
+---
+
+# What If We Sample Only 100 Fish?
+
+With only 100 individuals:
+- Statistical power is insufficient.
+- A biologically meaningful change may not be detected.
+- Failure to reject the null hypothesis may reflect inadequate sample size rather than absence of change.
+Key conclusion:
+WE DO NOT HAVE ENOUGH POWER TO DETECT A MEANINGFUL CHANGE.
+
+---
+
+# Why Do Allele Frequencies Change?
+
+Allele frequencies can change for two broad reasons.
+
+## 1. Sampling Noise
+
+Changes arise because:
+- Samples are finite.
+- Statistical estimates contain error.
+- Studies may lack sufficient power.
+These changes do not necessarily reflect evolution.
+
+## 2. Evolution
+
+Changes arise because allele frequencies truly shift through time.
+Evolutionary causes include:
+
+### Natural Selection
+
+Alleles differ in fitness, causing predictable frequency changes.
+
+### Neutral Processes
+
+Frequency changes occur through processes such as:
+
+- Genetic drift
+- Demographic fluctuations
+- Founder effects
+- Population bottlenecks
+
+---
+
+# Key Takeaways
+
+1. Genotype frequencies can be predicted from allele frequencies:
+
+$$
+p^2, 
+2pq,
+q^2
+$$
+
+2. Allele frequencies can be inferred from genotype observations.
+
+3. Sampling error creates uncertainty around frequency estimates.
+
+4. Confidence intervals quantify this uncertainty.
+
+5. Statistical power depends strongly on sample size.
+
+6. Detecting evolutionary change requires distinguishing true biological change from sampling noise.
+
+7. Allele frequency changes can reflect:
+
+- Sampling error
+- Natural selection
+- Neutral evolutionary processes
